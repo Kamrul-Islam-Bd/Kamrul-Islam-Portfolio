@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kamrul Islam — Accountant & Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+:root{
+  --bg:#08090f;--bg2:#0e1018;--bg3:#12151f;--card:#181c2a;--card2:#1e2235;
+  --accent:#00c896;--accent2:#3b82f6;--accent3:#8b5cf6;
+  --text:#eef0f8;--muted:#6b7491;--border:#ffffff0f;--border2:#ffffff1a;
+  --grad:linear-gradient(135deg,#00c896,#3b82f6);
+  --grad2:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+  --radius:16px;--radius-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden}
+::selection{background:var(--accent);color:#000}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(8,9,15,0.88);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem}
+.logo{font-family:var(--font-head);font-weight:800;font-size:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;letter-spacing:-.5px}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13.5px;padding:6px 13px;border-radius:var(--radius-sm);transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--card)}
+.nav-cta{background:var(--grad)!important;color:#000!important;-webkit-text-fill-color:#000!important;font-weight:600!important;padding:6px 18px!important;border-radius:20px!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+
+/* SECTIONS */
+section{padding:100px 0;position:relative}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--accent)}
+.section-title{font-family:var(--font-head);font-size:clamp(30px,4.5vw,50px);font-weight:800;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.5px}
+
+/* PROGRESS BAR */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--grad);z-index:999;transition:width .1s}
+
+/* HERO WITH COVER & PROFILE UPLOADER */
+#home{padding:0 0 120px;overflow:hidden}
+.cover-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: radial-gradient(ellipse 800px 600px at 20% 50%,rgba(0,200,150,.06) 0%,transparent 70%), var(--bg3);
+  border-bottom: 1px solid var(--border2);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.cover-upload-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(8, 9, 15, 0.75);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s;
+  z-index: 10;
+}
+.cover-upload-btn:hover {
+  background: var(--card);
+  border-color: var(--accent);
+}
+.hero-content-wrapper {
+  margin-top: -60px;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--border2);border-radius:20px;font-size:12.5px;color:var(--muted);margin-bottom:20px}
+.hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+h1.hero-name{font-family:var(--font-head);font-size:clamp(42px,6.5vw,72px);font-weight:800;line-height:1.0;margin-bottom:14px;letter-spacing:-1px}
+h1.hero-name .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline{font-size:17px;color:var(--muted);margin-bottom:10px;line-height:1.6;max-width:500px}
+.hero-tagline strong{color:var(--text)}
+.dual-badge{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.dbadge{padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;border:1px solid}
+.dbadge.green{background:rgba(0,200,150,.1);color:var(--accent);border-color:rgba(0,200,150,.25)}
+.dbadge.blue{background:rgba(59,130,246,.1);color:#60a5fa;border-color:rgba(59,130,246,.25)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 24px;border-radius:50px;font-size:14.5px;font-weight:500;text-decoration:none;cursor:pointer;border:none;transition:all .25s;font-family:var(--font-body)}
+.btn-primary{background:var(--grad);color:#000}
+.btn-primary:hover{opacity:.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,200,150,.2)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn-outline:hover{background:var(--card);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:36px}
+.hstat .num{font-family:var(--font-head);font-size:30px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hstat .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* Profile Avatar Upload Style */
+.avatar-wrap{position:relative;width:240px;height:240px;margin:0 auto}
+.aring{position:absolute;border-radius:50%;border:1px solid}
+.aring1{inset:-16px;border-color:rgba(0,200,150,.2);animation:spin 25s linear infinite}
+.aring2{inset:-30px;border-color:rgba(59,130,246,.12);animation:spin 35s linear infinite reverse;border-style:dashed}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-circle{width:240px;height:240px;border-radius:50%;background:linear-gradient(135deg,var(--card2),var(--card));border:4px solid var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:64px;font-weight:800;position:relative;z-index:1;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.5);background-size:cover;background-position:center;}
+.avatar-circle::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(0,200,150,.04),transparent);z-index:1;}
+.avatar-initials{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2}
+.profile-upload-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--bg);
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.profile-upload-btn:hover {
+  transform: scale(1.1);
+  background: #00e6ad;
+}
+.ftag{position:absolute;background:rgba(14,16,24,.9);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:7px 12px;font-size:12px;font-weight:500;backdrop-filter:blur(12px);z-index:2;white-space:nowrap}
+.ft1{top:-10px;right:-30px;animation:flt 3.5s ease-in-out infinite}
+.ft2{bottom:10px;left:-40px;animation:flt 3.5s ease-in-out infinite .9s}
+.ft3{top:48%;right:-54px;animation:flt 3.5s ease-in-out infinite 1.8s}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* ABOUT */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:14px;line-height:1.8}
+.about-text strong{color:var(--text)}
+.about-text .highlight{background:rgba(0,200,150,.08);border-left:2px solid var(--accent);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:20px 0;font-size:15px;color:var(--text);font-style:italic;line-height:1.7}
+.info-rows{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.irow{display:flex;align-items:center;gap:12px;padding:11px 15px;background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border)}
+.irow i{font-size:17px;color:var(--accent);flex-shrink:0;width:20px}
+.irow .il">{font-size:12px;color:var(--muted)}
+.irow .iv">{font-size:13.5px;color:var(--text);font-weight:500}
+.about-cards{display:flex;flex-direction:column;gap:14px}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:border-color .2s,transform .2s}
+.acard:hover{border-color:var(--border2);transform:translateX(4px)}
+.acard-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:21px}
+.ai-green{background:rgba(0,200,150,.12);color:var(--accent)}
+.ai-blue{background:rgba(59,130,246,.12);color:#60a5fa}
+.ai-purple{background:rgba(139,92,246,.12);color:#a78bfa}
+.acard h3{font-family:var(--font-head);font-size:15px;font-weight:700;margin-bottom:6px}
+.acard p{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* SKILLS */
+#skills{background:var(--bg3)}
+.skill-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.scat{padding:6px 16px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-size:13.5px;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.scat:hover,.scat.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.skcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;display:flex;align-items:center;gap:12px;transition:all .25s;cursor:default}
+.skcard:hover{border-color:var(--border2);transform:translateY(-3px);background:var(--card2)}
+.skicon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.sk-g{background:rgba(0,200,150,.12);color:var(--accent)}
+.sk-b{background:rgba(59,130,246,.12);color:#60a5fa}
+.sk-p{background:rgba(139,92,246,.12);color:#a78bfa}
+.sk-a{background:rgba(245,158,11,.12);color:#fbbf24}
+.sk-r{background:rgba(239,68,68,.12);color:#f87171}
+.skname{font-size:13.5px;font-weight:500}
+.sklvl{font-size:11.5px;color:var(--muted)}
+.skbar{height:2px;background:var(--border2);border-radius:2px;margin-top:5px;overflow:hidden}
+.skbarfill{height:100%;border-radius:2px;background:var(--grad)}
+
+/* EDUCATION */
+#education{background:var(--bg2)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all .25s;display:flex;flex-direction:column;gap:10px}
+.edu-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.edu-header{display:flex;align-items:flex-start;gap:14px}
+.edu-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ei-g{background:rgba(0,200,150,.12);color:var(--accent)}
+.ei-b{background:rgba(59,130,246,.12);color:#60a5fa}
+.ei-p{background:rgba(139,92,246,.12);color:#a78bfa}
+.ei-a{background:rgba(245,158,11,.12);color:#fbbf24}
+.edu-inst{font-size:12px;color:var(--muted);margin-bottom:3px}
+.edu-degree{font-family:var(--font-head);font-size:14.5px;font-weight:700;line-height:1.3}
+.edu-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.edu-year{font-size:12px;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:4px}
+.edu-badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500}
+.eb-g{background:rgba(0,200,150,.1);color:var(--accent)}
+.eb-b{background:rgba(59,130,246,.1);color:#60a5fa}
+.eb-p{background:rgba(139,92,246,.1);color:#a78bfa}
+.eb-a{background:rgba(245,158,11,.1);color:#fbbf24}
+.edu-extra{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+
+/* EXPERIENCE */
+#experience{background:var(--bg3)}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-dot{position:absolute;left:-28px;top:8px;width:20px;height:20px;border-radius:50%;background:var(--bg3);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center}
+.tl-dot span{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.tl-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:border-color .2s}
+.tl-card:hover{border-color:var(--border2)}
+.tl-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.tl-role{font-family:var(--font-head);font-size:16px;font-weight:700}
+.tl-year{font-size:12px;color:var(--accent);font-weight:500;padding:3px 10px;border-radius:20px;background:rgba(0,200,150,.08);white-space:nowrap}
+.tl-org{font-size:13.5px;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tl-org i{font-size:15px;color:var(--accent)}
+.tl-desc{font-size:14px;color:var(--muted);line-height:1.7}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ttag{font-size:11.5px;padding:3px 10px;border-radius:20px;border:1px solid var(--border2);color:var(--muted)}
+
+/* PROJECTS */
+#projects{background:var(--bg2)}
+.pfilt{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.pfbtn{padding:6px 16px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-size:13.5px;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.pfbtn:hover,.pfbtn.active{background:#3b82f6;color:#fff;border-color:#3b82f6}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:14px;transition:all .25s;text-decoration:none;color:var(--text)}
+.pcard:hover{border-color:var(--border2);transform:translateY(-4px);background:var(--card2)}
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.pcicon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.pc-ext{width:30px;height:30px;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--muted);transition:color .2s;flex-shrink:0}
+.pcard:hover .pc-ext{color:var(--accent)}
+.pname{font-family:var(--font-head);font-size:15.5px;font-weight:700;margin-bottom:4px}
+.pdesc{font-size:13.5px;color:var(--muted);line-height:1.6}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lbadge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11.5px;font-weight:500}
+.lb-sql{background:rgba(59,130,246,.12);color:#60a5fa}
+.lb-cs{background:rgba(139,92,246,.12);color:#a78bfa}
+.lb-js{background:rgba(245,158,11,.12);color:#fbbf24}
+.lb-html{background:rgba(239,68,68,.1);color:#f87171}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--bg3)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;gap:16px;transition:all .25s;align-items:flex-start}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.cbadge{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;flex-shrink:0}
+.cb-g{background:rgba(0,200,150,.12);color:var(--accent)}
+.cb-b{background:rgba(59,130,246,.12);color:#60a5fa}
+.cb-p{background:rgba(139,92,246,.12);color:#a78bfa}
+.cb-a{background:rgba(245,158,11,.12);color:#fbbf24}
+.cert-title{font-family:var(--font-head);font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.4}
+.cert-issuer{font-size:12.5px;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.cert-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cert-year{font-size:11.5px;color:var(--accent);font-weight:500}
+.cert-hours{font-size:11.5px;color:var(--muted);padding:2px 8px;border-radius:10px;border:1px solid var(--border2)}
+
+/* CONTACT + AI */
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-links{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.clink{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);transition:all .25s}
+.clink:hover{border-color:var(--border2);transform:translateX(5px)}
+.clink-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ci-green{background:rgba(0,200,150,.12);color:var(--accent)}
+.ci-blue{background:rgba(59,130,246,.12);color:#60a5fa}
+.ci-fb{background:rgba(59,130,246,.15);color:#93c5fd}
+.ci-mail{background:rgba(139,92,246,.12);color:#a78bfa}
+.ci-pin{background:rgba(239,68,68,.1);color:#f87171}
+.clink-lbl{font-size:12px;color:var(--muted)}
+.clink-val{font-size:14px;font-weight:500}
+/* AI Chat */
+.ai-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.ai-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ai-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.ai-head h3{font-family:var(--font-head);font-size:15.5px;font-weight:700}
+.aibadge{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(0,200,150,.1);color:var(--accent);font-weight:500}
+.chat-msgs{height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.chat-msgs::-webkit-scrollbar{width:2px}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--accent)}
+.cmsg{max-width:90%;padding:9px 13px;border-radius:12px;font-size:13.5px;line-height:1.5}
+.cmsg.bot{background:var(--bg);border:1px solid var(--border);align-self:flex-start;border-radius:4px 12px 12px 12px}
+.cmsg.user{background:rgba(0,200,150,.15);border:1px solid rgba(0,200,150,.2);align-self:flex-end;border-radius:12px 4px 12px 12px}
+.cmsg.thinking{color:var(--muted);font-style:italic}
+.qq-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.qq{font-size:12px;padding:4px 11px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.qq:hover{border-color:var(--accent);color:var(--accent)}
+.chat-in-row{display:flex;gap:8px}
+.chat-in-row input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:9px 13px;color:var(--text);font-size:13.5px;font-family:var(--font-body);outline:none;transition:border-color .2s}
+.chat-in-row input:focus{border-color:var(--accent)}
+.chat-in-row input::placeholder{color:var(--muted)}
+.sbtn{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#000;font-size:17px;transition:opacity .2s;flex-shrink:0}
+.sbtn:hover{opacity:.85}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:28px 0;text-align:center}
+footer p{font-size:13.5px;color:var(--muted)}
+footer span{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay{transition-delay:.15s}
+.reveal-delay2{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;text-align:center;margin-top: -30px;}
+  .hero-visual{margin-top: 20px;}
+  .hero-btns,.hero-stats,.dual-badge{justify-content:center}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg2);padding:1rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .cover-container { height: 200px; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="prog"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo">KI.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="cover-container" id="coverPhoto">
+    <label class="cover-upload-btn">
+      <i class="ti ti-camera"></i> Change Cover
+      <input type="file" id="coverInput" accept="image/*" style="display: none;"/>
+    </label>
+  </div>
+
+  <div class="container hero-content-wrapper">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag"><div class="dot"></div> Open to Opportunities</div>
+        <h1 class="hero-name">Kamrul<br><span class="g">Islam</span></h1>
+        <div class="dual-badge">
+          <span class="dbadge green">📊 Professional Accountant</span>
+          <span class="dbadge blue">💻 Full-Stack Developer</span>
+        </div>
+        <p class="hero-tagline">"Transforming Financial Integrity Through <strong>Technological Innovation</strong>" — Bridging the gap between <strong>Finance Intelligence</strong> and <strong>Software Engineering</strong>.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary"><i class="ti ti-folder"></i> View Projects</a>
+          <a href="#contact" class="btn btn-outline"><i class="ti ti-message"></i> Contact Me</a>
+          <a href="https://github.com/Kamrul-Islam-Bd" target="_blank" class="btn btn-outline"><i class="ti ti-brand-github"></i> GitHub</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><div class="num">6+</div><div class="lbl">Years Finance</div></div>
+          <div class="hstat"><div class="num">31+</div><div class="lbl">Repositories</div></div>
+          <div class="hstat"><div class="num">788h</div><div class="lbl">IsDB Training</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-wrap">
+          <div class="aring aring1"></div>
+          <div class="aring aring2"></div>
+          
+          <div class="avatar-circle" id="profilePic">
+            <span class="avatar-initials" id="initialsText">KI</span>
+            <label class="profile-upload-btn">
+              <i class="ti ti-camera" style="font-size: 18px;"></i>
+              <input type="file" id="profileInput" accept="image/*" style="display: none;"/>
+            </label>
+          </div>
+          
+          <div class="ftag ft1">⚡ C# / .NET</div>
+          <div class="ftag ft2">📊 Accountant</div>
+          <div class="ftag ft3">🗄️ SQL Expert</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="reveal"><div class="section-label">Who I am</div><h2 class="section-title">About Me</h2></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm <strong>Kamrul Islam</strong>, a unique professional who combines <strong>6+ years of accounting expertise</strong> with full-stack software development skills. Based in Dhaka, Bangladesh, I bridge the gap between financial intelligence and technology.</p>
+        <p>My academic foundation in <strong>MBA (Accounting)</strong> and <strong>PGD in Supply Chain Management</strong>, combined with intensive software training at <strong>IsDB-BISEW (788 hours)</strong>, gives me a rare dual-domain capability that modern enterprises need.</p>
+        <div class="highlight">"Transforming Financial Integrity Through Technological Innovation — Building Smart Finance systems by leveraging full-stack technical skills."</div>
+        <p>I specialize in <strong>Database-Driven Auditing</strong> using SQL Server, <strong>Process Automation</strong> with ASP.NET Core & C#, and cloud accounting platforms like <strong>QuickBooks, Xero, and Zoho Books</strong>.</p>
+        <div class="info-rows">
+          <div class="irow"><i class="ti ti-map-pin"></i><div><div class="il">Location</div><div class="iv">Dhaka, Bangladesh</div></div></div>
+          <div class="irow"><i class="ti ti-mail"></i><div><div class="il">Email</div><div class="iv">kamrulislam259259@gmail.com</div></div></div>
+          <div class="irow"><i class="ti ti-brand-linkedin"></i><div><div class="il">LinkedIn</div><div class="iv">kamrul-islam71</div></div></div>
+          <div class="irow"><i class="ti ti-brand-github"></i><div><div class="il">GitHub</div><div class="iv">Kamrul-Islam-Bd</div></div></div>
+        </div>
+      </div>
+      <div class="about-cards reveal reveal-delay">
+        <div class="acard">
+          <div class="acard-icon ai-green"><i class="ti ti-calculator"></i></div>
+          <h3>Finance & Accounting</h3>
+          <p>6+ years managing complex financial operations — Balance Sheets, Cash Flow, Tax/VAT, Audit. Expert in QuickBooks, Xero, Zoho Books, Wave, and Tally.</p>
+        </div>
+        <div class="acard">
+          <div class="acard-icon ai-blue"><i class="ti ti-code"></i></div>
+          <h3>Full-Stack Development</h3>
+          <p>ASP.NET Core, C#, Angular, React, SQL Server — building enterprise applications and automating financial workflows with modern web technologies.</p>
+        </div>
+        <div class="acard">
+          <div class="acard-icon ai-purple"><i class="ti ti-chart-bar"></i></div>
+          <h3>Data & Supply Chain</h3>
+          <p>3+ years data research & analytical modeling. PGD in Supply Chain Management. SQL-driven financial dataset analysis for 100% data integrity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="reveal"><div class="section-label">What I know</div><h2 class="section-title">Skills & Technologies</h2></div>
+    <div class="skill-cats reveal">
+      <button class="scat active" onclick="filterSkills('all',this)">All</button>
+      <button class="scat" onclick="filterSkills('finance',this)">Finance & Accounting</button>
+      <button class="scat" onclick="filterSkills('backend',this)">Backend Dev</button>
+      <button class="scat" onclick="filterSkills('frontend',this)">Frontend Dev</button>
+      <button class="scat" onclick="filterSkills('database',this)">Database</button>
+      <button class="scat" onclick="filterSkills('design',this)">Design</button>
+    </div>
+    <div class="skills-grid reveal" id="skillsGrid">
+      <div class="skcard" data-cat="finance"><div class="skicon sk-g"><i class="ti ti-calculator"></i></div><div style="flex:1"><div class="skname">Accounting</div><div class="sklvl">Expert · 6+ yrs</div><div class="skbar"><div class="skbarfill" style="width:95%"></div></div></div></div>
+      <div class="skcard" data-cat="finance"><div class="skicon sk-g"><i class="ti ti-receipt"></i></div><div style="flex:1"><div class="skname">Tax & VAT</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:90%"></div></div></div></div>
+      <div class="skcard" data-cat="finance"><div class="skicon sk-a"><i class="ti ti-report"></i></div><div style="flex:1"><div class="skname">Auditing</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:90%"></div></div></div></div>
+      <div class="skcard" data-cat="finance"><div class="skicon sk-b"><i class="ti ti-cloud"></i></div><div style="flex:1"><div class="skname">QuickBooks/Xero</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:88%"></div></div></div></div>
+      <div class="skcard" data-cat="finance"><div class="skicon sk-a"><i class="ti ti-building-bank"></i></div><div style="flex:1"><div class="skname">Banking Ops</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:85%"></div></div></div></div>
+      <div class="skcard" data-cat="finance"><div class="skicon sk-p"><i class="ti ti-truck"></i></div><div style="flex:1"><div class="skname">Supply Chain</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:82%"></div></div></div></div>
+      <div class="skcard" data-cat="backend"><div class="skicon sk-p"><i class="ti ti-letter-c"></i></div><div style="flex:1"><div class="skname">C#</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:85%"></div></div></div></div>
+      <div class="skcard" data-cat="backend"><div class="skicon sk-p"><i class="ti ti-server-2"></i></div><div style="flex:1"><div class="skname">ASP.NET Core</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:83%"></div></div></div></div>
+      <div class="skcard" data-cat="backend"><div class="skicon sk-g"><i class="ti ti-api"></i></div><div style="flex:1"><div class="skname">Web API</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:80%"></div></div></div></div>
+      <div class="skcard" data-cat="backend"><div class="skicon sk-p"><i class="ti ti-device-mobile"></i></div><div style="flex:1"><div class="skname">.NET MAUI</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:78%"></div></div></div></div>
+      <div class="skcard" data-cat="frontend"><div class="skicon sk-r"><i class="ti ti-brand-angular"></i></div><div style="flex:1"><div class="skname">Angular</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:80%"></div></div></div></div>
+      <div class="skcard" data-cat="frontend"><div class="skicon sk-b"><i class="ti ti-brand-react"></i></div><div style="flex:1"><div class="skname">React</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:78%"></div></div></div></div>
+      <div class="skcard" data-cat="frontend"><div class="skicon sk-a"><i class="ti ti-brand-javascript"></i></div><div style="flex:1"><div class="skname">JavaScript</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:82%"></div></div></div></div>
+      <div class="skcard" data-cat="frontend"><div class="skicon sk-g"><i class="ti ti-brand-jquery"></i></div><div style="flex:1"><div class="skname">jQuery</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:80%"></div></div></div></div>
+      <div class="skcard" data-cat="frontend"><div class="skicon sk-a"><i class="ti ti-file-code"></i></div><div style="flex:1"><div class="skname">HTML & CSS</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:88%"></div></div></div></div>
+      <div class="skcard" data-cat="database"><div class="skicon sk-b"><i class="ti ti-database"></i></div><div style="flex:1"><div class="skname">SQL Server</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:92%"></div></div></div></div>
+      <div class="skcard" data-cat="database"><div class="skicon sk-b"><i class="ti ti-code"></i></div><div style="flex:1"><div class="skname">T-SQL</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:90%"></div></div></div></div>
+      <div class="skcard" data-cat="design"><div class="skicon sk-p"><i class="ti ti-photo"></i></div><div style="flex:1"><div class="skname">Photoshop</div><div class="sklvl">Expert</div><div class="skbar"><div class="skbarfill" style="width:85%"></div></div></div></div>
+      <div class="skcard" data-cat="design"><div class="skicon sk-a"><i class="ti ti-vector"></i></div><div style="flex:1"><div class="skname">Illustrator</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:80%"></div></div></div></div>
+      <div class="skcard" data-cat="design"><div class="skicon sk-g"><i class="ti ti-palette"></i></div><div style="flex:1"><div class="skname">Web Design</div><div class="sklvl">Advanced</div><div class="skbar"><div class="skbarfill" style="width:82%"></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="reveal"><div class="section-label">Academic Background</div><h2 class="section-title">Education</h2></div>
+    <div class="edu-grid reveal">
+
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-icon ei-p"><i class="ti ti-code"></i></div>
+          <div>
+            <div class="edu-inst">IsDB-BISEW</div>
+            <div class="edu-degree">Cross Platform Apps Using ASP.Net, React &amp; Angular</div>
+          </div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-year"><i class="ti ti-calendar" style="font-size:13px"></i> Apr 2024 – Apr 2025</span>
+          <span class="edu-badge eb-p">Software Programming</span>
+        </div>
+        <div class="edu-extra"><i class="ti ti-clock" style="font-size:14px;color:var(--accent)"></i> 788 Hours · Course Completed</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-icon ei-b"><i class="ti ti-palette"></i></div>
+          <div>
+            <div class="edu-inst">National Institute of Youth Development, Ministry of Youth &amp; Sports</div>
+            <div class="edu-degree">Website Design Training</div>
+          </div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-year"><i class="ti ti-calendar" style="font-size:13px"></i> Apr 2025 – May 2025</span>
+          <span class="edu-badge eb-b">Web Design</span>
+        </div>
+        <div class="edu-extra"><i class="ti ti-clock" style="font-size:14px;color:var(--accent)"></i> 110 Hours · Certificate Awarded</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-icon ei-g"><i class="ti ti-truck"></i></div>
+          <div>
+            <div class="edu-inst">National University of Bangladesh</div>
+            <div class="edu-degree">PGD-SCM — Supply Chain Management</div>
+          </div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-year"><i class="ti ti-calendar" style="font-size:13px"></i> Jun 2024 – Jun 2025</span>
+          <span class="edu-badge eb-g">Logistics & SCM</span>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-icon ei-a"><i class="ti ti-chart-bar"></i></div>
+          <div>
+            <div class="edu-inst">National University of Bangladesh</div>
+            <div class="edu-degree">Master of Business Administration (MBA) — Accounting</div>
+          </div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-year"><i class="ti ti-calendar" style="font-size:13px"></i> Apr 2020 – Jun 2021</span>
+          <span class="edu-badge eb-a">Major in Accounting</span>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-header">
+          <div class="edu-icon ei-a"><i class="ti ti-school"></i></div>
+          <div>
+            <div class="edu-inst">National University of Bangladesh</div>
+            <div class="edu-degree">Bachelor of Business Administration (BBA) — Accounting</div>
+          </div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-year"><i class="ti ti-calendar" style="font-size:13px"></i> Jan 2016 – Jan 2020</span>
+          <span class="edu-badge eb-a">Major in Accounting</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="reveal"><div class="section-label">Career History</div><h2 class="section-title">Experience</h2></div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"><span></span></div>
+        <div class="tl-card">
+          <div class="tl-top"><div class="tl-role">Financial Operations Manager</div><span class="tl-year">Current</span></div>
+          <div class="tl-org"><i class="ti ti-building"></i> Development & Financial Sector</div>
+          <div class="tl-desc">Overseeing financial operations, bank reconciliations, and internal control systems. Applying software engineering skills to automate financial workflows and build smart finance systems.</div>
+          <div class="tl-tags"><span class="ttag">Financial Reporting</span><span class="ttag">Bank Reconciliation</span><span class="ttag">Internal Controls</span><span class="ttag">ERP Systems</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span></span></div>
+        <div class="tl-card">
+          <div class="tl-top"><div class="tl-role">Banking Operations Officer</div><span class="tl-year">Previous</span></div>
+          <div class="tl-org"><i class="ti ti-building-bank"></i> Leading Private Bank, Bangladesh</div>
+          <div class="tl-desc">Managed Retail, Home, and Personal Loan portfolios. Handled loan processing, credit assessment, customer relations, and compliance with banking regulations.</div>
+          <div class="tl-tags"><span class="ttag">Loan Portfolio</span><span class="ttag">Credit Assessment</span><span class="ttag">Retail Banking</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span></span></div>
+        <div class="tl-card">
+          <div class="tl-top"><div class="tl-role">Tax & Audit Consultant</div><span class="tl-year">Previous</span></div>
+          <div class="tl-org"><i class="ti ti-scale"></i> Prominent CA Firm, Bangladesh</div>
+          <div class="tl-desc">Specialized in Company and Personal Tax consultancy and statutory audits. Delivered accurate, compliant, and timely results for diverse corporate and individual clients.</div>
+          <div class="tl-tags"><span class="ttag">Tax Consultancy</span><span class="ttag">Statutory Audit</span><span class="ttag">VAT Filing</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span></span></div>
+        <div class="tl-card">
+          <div class="tl-top"><div class="tl-role">Data Research Analyst</div><span class="tl-year">3 Years</span></div>
+          <div class="tl-org"><i class="ti ti-chart-line"></i> Research Organization</div>
+          <div class="tl-desc">3-year foundation in data-driven research and analytical modeling. Built skills in data collection, processing, and generating actionable business insights.</div>
+          <div class="tl-tags"><span class="ttag">Data Analysis</span><span class="ttag">Research</span><span class="ttag">Analytical Modeling</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="reveal"><div class="section-label">What I've built</div><h2 class="section-title">Projects</h2></div>
+    <div class="pfilt reveal">
+      <button class="pfbtn active" onclick="filterProj('all',this)">All</button>
+      <button class="pfbtn" onclick="filterProj('finance',this)">Finance/ERP</button>
+      <button class="pfbtn" onclick="filterProj('sql',this)">SQL / Database</button>
+      <button class="pfbtn" onclick="filterProj('csharp',this)">C# / .NET</button>
+      <button class="pfbtn" onclick="filterProj('frontend',this)">Frontend</button>
+    </div>
+    <div class="projects-grid reveal" id="projGrid">
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd" target="_blank" data-cat="finance">
+        <div class="pc-top"><div class="pcicon sk-g"><i class="ti ti-chart-bar"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">Sports Training Academy Management</div><p class="pdesc">Enterprise system using ASP.NET Core, Web API, Angular, TypeScript and MS SQL. Manages athlete registrations, schedules, and financial reporting.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-cs">ASP.NET / Angular</span></div>
+      </a>
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd/SQL-Management-With-DDL" target="_blank" data-cat="sql">
+        <div class="pc-top"><div class="pcicon sk-b"><i class="ti ti-database"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">SQL Management — DDL</div><p class="pdesc">Product database management with complete DDL operations. Schema design, table creation, constraints, and enterprise-grade database structuring.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-sql">T-SQL</span></div>
+      </a>
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd/SQL-Management-DML" target="_blank" data-cat="sql">
+        <div class="pc-top"><div class="pcicon sk-b"><i class="ti ti-table"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">SQL Management — DML</div><p class="pdesc">Advanced DML operations on product database. INSERT, UPDATE, DELETE, complex queries, stored procedures and financial data integrity checks.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-sql">T-SQL</span></div>
+      </a>
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd/CSharp-Project" target="_blank" data-cat="csharp">
+        <div class="pc-top"><div class="pcicon sk-p"><i class="ti ti-school"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">Student Result Information System</div><p class="pdesc">C# application for managing student records, grading systems, and academic performance reports with database-driven reporting.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-cs">C#</span></div>
+      </a>
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd/Javascript-Code" target="_blank" data-cat="frontend">
+        <div class="pc-top"><div class="pcicon sk-a"><i class="ti ti-brand-javascript"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">JavaScript Practice & Notes</div><p class="pdesc">Comprehensive JS code covering DOM manipulation, ES6+, async programming, and finance-related automation logic patterns.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-js">JavaScript</span></div>
+      </a>
+
+      <a class="pcard" href="https://github.com/Kamrul-Islam-Bd/JQuery-Basic-Code" target="_blank" data-cat="frontend">
+        <div class="pc-top"><div class="pcicon sk-g"><i class="ti ti-code-circle"></i></div><div class="pc-ext"><i class="ti ti-external-link"></i></div></div>
+        <div><div class="pname">jQuery Code Library</div><p class="pdesc">jQuery fundamentals including DOM manipulation, AJAX calls for financial data fetching, event handling and dynamic UI components.</p></div>
+        <div class="pc-foot"><span class="lbadge lb-html">HTML / JS</span></div>
+      </a>
+
+    </div>
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <a href="https://github.com/Kamrul-Islam-Bd?tab=repositories" target="_blank" class="btn btn-outline"><i class="ti ti-brand-github"></i> View All 31 Repositories on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="reveal"><div class="section-label">Credentials & Training</div><h2 class="section-title">Certifications</h2></div>
+    <div class="certs-grid reveal">
+
+      <div class="cert-card">
+        <div class="cbadge cb-p"><i class="ti ti-certificate"></i></div>
+        <div>
+          <div class="cert-title">Cross Platform Apps — ASP.Net, React &amp; Angular</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> IsDB-BISEW</div>
+          <div class="cert-meta"><span class="cert-year">Apr 2024 – Apr 2025</span><span class="cert-hours">788 Hours</span></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cbadge cb-b"><i class="ti ti-palette"></i></div>
+        <div>
+          <div class="cert-title">Website Design Training Certificate</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> National Institute of Youth Development, MoYS</div>
+          <div class="cert-meta"><span class="cert-year">Apr – May 2025</span><span class="cert-hours">110 Hours</span></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cbadge cb-g"><i class="ti ti-truck"></i></div>
+        <div>
+          <div class="cert-title">PGD — Supply Chain Management</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> National University of Bangladesh</div>
+          <div class="cert-meta"><span class="cert-year">Jun 2024 – Jun 2025</span></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cbadge cb-a"><i class="ti ti-chart-bar"></i></div>
+        <div>
+          <div class="cert-title">MBA — Accounting (National University)</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> National University of Bangladesh</div>
+          <div class="cert-meta"><span class="cert-year">Apr 2020 – Jun 2021</span></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cbadge cb-a"><i class="ti ti-school"></i></div>
+        <div>
+          <div class="cert-title">BBA — Accounting (National University)</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> National University of Bangladesh</div>
+          <div class="cert-meta"><span class="cert-year">Jan 2016 – Jan 2020</span></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cbadge cb-g"><i class="ti ti-photo"></i></div>
+        <div>
+          <div class="cert-title">Adobe Photoshop &amp; Illustrator</div>
+          <div class="cert-issuer"><i class="ti ti-building" style="font-size:13px"></i> Professional Graphic Design Training</div>
+          <div class="cert-meta"><span class="cert-year">Certified</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="reveal"><div class="section-label">Let's connect</div><h2 class="section-title">Get in Touch</h2></div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-links">
+          <a class="clink" href="mailto:kamrulislam259259@gmail.com">
+            <div class="clink-icon ci-mail"><i class="ti ti-mail"></i></div>
+            <div><div class="clink-lbl">Email</div><div class="clink-val">kamrulislam259259@gmail.com</div></div>
+          </a>
+          <a class="clink" href="https://www.linkedin.com/in/kamrul-islam71" target="_blank">
+            <div class="clink-icon ci-blue"><i class="ti ti-brand-linkedin"></i></div>
+            <div><div class="clink-lbl">LinkedIn</div><div class="clink-val">kamrul-islam71</div></div>
+          </a>
+          <a class="clink" href="https://github.com/Kamrul-Islam-Bd" target="_blank">
+            <div class="clink-icon ci-green"><i class="ti ti-brand-github"></i></div>
+            <div><div class="clink-lbl">GitHub</div><div class="clink-val">Kamrul-Islam-Bd (31 repos)</div></div>
+          </a>
+          <a class="clink" href="https://www.facebook.com/kamrul.islam.jahangir.2024" target="_blank">
+            <div class="clink-icon ci-fb"><i class="ti ti-brand-facebook"></i></div>
+            <div><div class="clink-lbl">Facebook</div><div class="clink-val">kamrul.islam.jahangir.2024</div></div>
+          </a>
+          <div class="clink" style="cursor:default">
+            <div class="clink-icon ci-pin"><i class="ti ti-map-pin"></i></div>
+            <div><div class="clink-lbl">Location</div><div class="clink-val">Dhaka, Bangladesh</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay">
+        <div class="ai-box">
+          <div class="ai-head"><div class="ai-dot"></div><h3>Ask about Kamrul</h3><span class="aibadge">AI powered</span></div>
+          <div class="chat-msgs" id="chatMsgs">
+            <div class="cmsg bot">👋 Hi! I'm Kamrul's AI assistant. Ask me about his accounting expertise, tech skills, education, or projects!</div>
+          </div>
+          <div class="qq-row">
+            <button class="qq" onclick="askQ('What are his main skills?')">Main skills?</button>
+            <button class="qq" onclick="askQ('What is his accounting experience?')">Accounting?</button>
+            <button class="qq" onclick="askQ('Tell me about his education')">Education?</button>
+            <button class="qq" onclick="askQ('Is he available for hire?')">Available?</button>
+          </div>
+          <div class="chat-in-row">
+            <input id="chatIn" type="text" placeholder="Ask anything about Kamrul..." onkeydown="if(event.key==='Enter')sendChat()"/>
+            <button class="sbtn" onclick="sendChat()"><i class="ti ti-send"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built with <span>♥</span> — Kamrul Islam &copy; 2025 · Dhaka, Bangladesh</p>
+</footer>
+
+<script>
+// Progress & Nav
+window.addEventListener('scroll',()=>{
+  const p=document.getElementById('prog');
+  p.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// Reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Skills filter
+function filterSkills(cat,btn){
+  document.querySelectorAll('.scat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('.skcard').forEach(c=>c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none');
+}
+
+// Projects filter
+function filterProj(cat,btn){
+  document.querySelectorAll('.pfbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('#projGrid .pcard').forEach(c=>c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none');
+}
+
+// ==========================================
+// FACEBOOK PROFILE & COVER UPLOADER ENGINE
+// ==========================================
+const coverInput = document.getElementById('coverInput');
+const coverPhoto = document.getElementById('coverPhoto');
+const profileInput = document.getElementById('profileInput');
+const profilePic = document.getElementById('profilePic');
+const initialsText = document.getElementById('initialsText');
+
+// Load saved graphics on page init
+window.addEventListener('DOMContentLoaded', () => {
+  const savedCover = localStorage.getItem('ki_cover');
+  const savedProfile = localStorage.getItem('ki_profile');
+  
+  if (savedCover) {
+    coverPhoto.style.backgroundImage = `url('${savedCover}')`;
+  }
+  if (savedProfile) {
+    profilePic.style.backgroundImage = `url('${savedProfile}')`;
+    initialsText.style.display = 'none'; // Hide "KI" initials if custom image exists
+  }
+});
+
+// Cover Upload Core
+coverInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const imgUrl = event.target.result;
+      coverPhoto.style.backgroundImage = `url('${imgUrl}')`;
+      localStorage.setItem('ki_cover', imgUrl);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+// Profile Upload Core
+profileInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const imgUrl = event.target.result;
+      profilePic.style.backgroundImage = `url('${imgUrl}')`;
+      initialsText.style.display = 'none';
+      localStorage.setItem('ki_profile', imgUrl);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+
+// AI Chat
+const SYS=`You are a professional portfolio AI assistant for Kamrul Islam.
+
+PROFILE:
+Name: Kamrul Islam | Location: Dhaka, Bangladesh
+Email: kamrulislam259259@gmail.com
+GitHub: Kamrul-Islam-Bd (31 repos) | LinkedIn: kamrul-islam71
+Tagline: "Transforming Financial Integrity Through Technological Innovation"
+
+UNIQUE VALUE PROPOSITION:
+Bridges Finance Intelligence + Software Engineering. 6+ years accounting + full-stack dev skills.
+
+EDUCATION:
+1. IsDB-BISEW — Cross Platform Apps (ASP.Net, React, Angular) | Apr 2024–Apr 2025 | 788 Hours
+2. National Institute of Youth Development — Website Design | Apr–May 2025 | 110 Hours  
+3. National University — PGD-SCM Supply Chain Management | Jun 2024–Jun 2025
+4. National University — MBA Major in Accounting | Apr 2020–Jun 2021
+5. National University — BBA Major in Accounting | Jan 2016–Jan 2020
+
+TECHNICAL SKILLS:
+Backend: C#, ASP.NET Core, ADO.NET, .NET MAUI, Web API
+Frontend: Angular, React, JavaScript, jQuery, HTML, CSS
+Database: SQL Server, T-SQL (expert in DDL & DML)
+Design: Adobe Photoshop, Adobe Illustrator, Web Design
+
+FINANCE & ACCOUNTING SKILLS:
+Cloud: QuickBooks, Xero, Zoho Books, Wave
+ERP: Tally
+Expertise: Balance Sheets, Cash Flow, Tax/VAT filings, Statutory Audit, Bank Reconciliation
+Banking: Managed Retail, Home & Personal Loan portfolios at a leading private bank
+Audit: Company & Personal Tax consultancy at a prominent CA firm
+
+PROJECTS:
+- Sports Training Academy Management System (ASP.NET Core, Web API, Angular, TypeScript, MS SQL)
+- SQL-Management-With-DDL (T-SQL)
+- SQL-Management-DML (T-SQL)
+- CSharp-Project: Student Result System (C#)
+- JavaScript-Code, HTML_Code, JQuery-Basic-Code (31 total repos)
+
+KEY STRENGTH: Uses SQL Server for database-driven auditing & financial dataset integrity; applies ASP.NET/C# to automate accounting workflows.
+
+Respond in 2-4 sentences. Be professional and warm. Answer in Bengali if asked in Bengali. For unknown details, suggest contacting via kamrulislam259259@gmail.com or LinkedIn.`;
+
+async function sendChat(){
+  const inp=document.getElementById('chatIn');
+  const q=inp.value.trim();if(!q)return;inp.value='';
+  addMsg(q,'user');
+  const t=addMsg('Thinking...','bot thinking');
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:[{role:'user',content:q}]})
+    });
+    const d=await r.json();
+    t.className='cmsg bot';
+    t.textContent=d.content?.map(c=>c.text||'').join('')||'Sorry, try again.';
+  }catch(e){t.className='cmsg bot';t.textContent='Connection error. Please try again.'}
+}
+function askQ(q){document.getElementById('chatIn').value=q;sendChat()}
+function addMsg(txt,cls){
+  const b=document.getElementById('chatMsgs');
+  const d=document.createElement('div');d.className=`cmsg ${cls}`;d.textContent=txt;
+  b.appendChild(d);b.scrollTop=b.scrollHeight;return d;
+}
+</script>
+</body>
+</html>
